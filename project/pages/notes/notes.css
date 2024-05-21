@@ -194,3 +194,24 @@
     background-color:orange;
     color: #fff;
 }
+
+.crate-note-spot__buttons-spot {
+    display: flex;
+    gap: 20px;
+}
+
+.create-note-spot__button-cancel {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    background-color: rgb(175, 175, 175);
+    box-shadow: 0px 0px 8px rgb(202, 202, 202);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.create-note-spot__button-cancel:hover {
+    transform: scale(1.05);
+    background-color:red;
+    color: #fff;
+}

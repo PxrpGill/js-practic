@@ -7,7 +7,7 @@ const notesInstruments = document.querySelector(".notes-instruments__create-note
 
 createNote.addEventListener("click", function() {
     let key = new Date();
-    
+
     const inputTitleNote = document.createElement("input");
     inputTitleNote.type = "text";
     inputTitleNote.className = "create-note-spot__note-title";
@@ -18,14 +18,25 @@ createNote.addEventListener("click", function() {
     inputTextNote.className = "create-note-spot__note-text";
     inputTextNote.placeholder = "Текст заметки";
 
+    const buttonsSpot = document.createElement("section");
+    buttonsSpot.className = "crate-note-spot__buttons-spot";
+
     const submitButton = document.createElement("button");
     submitButton.type = "button";
     submitButton.className = "create-note-spot__button-submit";
     submitButton.textContent = "Создать";
 
+    const cancelButton = document.createElement("button");
+    cancelButton.type = "button";
+    cancelButton.className = "create-note-spot__button-cancel";
+    cancelButton.textContent = "Отмена";
+
+    buttonsSpot.appendChild(submitButton);
+    buttonsSpot.appendChild(cancelButton);
+
     notesInstruments.appendChild(inputTitleNote);
     notesInstruments.appendChild(inputTextNote);
-    notesInstruments.append(submitButton);
+    notesInstruments.appendChild(buttonsSpot);
 
     submitButton.addEventListener('click', function() {
         const data = {
@@ -36,6 +47,12 @@ createNote.addEventListener("click", function() {
         localStorage.setItem(String(key), data);
         notesInstruments.removeChild(inputTextNote);
         notesInstruments.removeChild(inputTitleNote);
-        notesInstruments.removeChild(submitButton);
+        notesInstruments.removeChild(buttonsSpot);
+    })
+
+    cancelButton.addEventListener('click', function() {
+        notesInstruments.removeChild(inputTextNote);
+        notesInstruments.removeChild(inputTitleNote);
+        notesInstruments.removeChild(buttonsSpot);
     })
 });
