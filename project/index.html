@@ -1,11 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>JS-Практика Калькулятор</title>
+  <link rel="stylesheet" href="./calculator.css">
+  <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
-  
+  <header class="header">
+    <div class="header__container">
+      <section class="header__title">
+        <h1 class="title__inner">Калькулятор</h1>
+      </section>
+      <section class="header__content">
+        <h2 class="content__title--visually-hidden">
+          Контент часть хэдера
+        </h2>
+        <nav class="content__navigation">
+          <ul class="navigation__list">
+            <li class="list__item">
+              <a href="./index.html" class="item__link">Калькулятор</a>
+            </li>
+            <li class="list__item">
+              <a href="#" class="item__link">Заметки</a>
+            </li>
+          </ul>
+        </nav>
+      </section>
+    </div>
+  </header>
+  <main class="main">
+    <div class="main__container">
+      <section class="main__calculatior-body">
+        <h3 class="calculator__title--visually-hidden">
+          Калькулятор
+        </h3>
+        <section class="calculator-body__calc-title-window">
+          <h4 class="calc-window__title--visually-hidden">Окно рассчетов</h4>
+          <p class="calc-window__calc-result">0</p>
+        </section>
+        <section class="calc-body__calc-buttons">
+          <h4 class="calc-buttons__title--visually-hiden">Кнопки калькулятора</h4>
+          <section class="calc-buttons__digit-buttons">
+            <h5 class="digit-buttons__title--visually-hidden">Кнопки цифр</h5>
+            <article class="digit-buttons__button-spot">
+              <h5 class="button-spot__title-button">Блок кнопки AC</h5>
+              <button class="button-spot__button" type="button">AC</button>
+            </article>
+            <article class="digit-buttons__button-spot">
+              <h5 class="button-spot__title-button">Блок кнопки +/-</h5>
+              <button class="button-spot__button" type="button">+/-</button>
+            </article>
+            <article class="digit-buttons__button-spot">
+              <h5 class="button-spot__title-button">Блок кнопки %</h5>
+              <button class="button-spot__button" type="button">%</button>
+            </article>
+            <article class="digit-buttons__button-spot">
+              <h5 class="button-spot__title-button">Блок кнопки 1</h5>
+              <button class="button-spot__button" type="button">1</button>
+            </article>
+            <article class="digit-buttons__button-spot">
+              <h5 class="button-spot__title-button">Блок кнопки 2</h5>
+              <button class="button-spot__button" type="button">2</button>
+            </article>
+            <article class="digit-buttons__button-spot">
+              <h5 class="button-spot__title-button">Блок кнопки 3</h5>
+              <button class="button-spot__button" type="button">3</button>
+            </article>
+            <article class="digit-buttons__button-spot">
+              <h5 class="button-spot__title-button">Блок кнопки 4</h5>
+              <button class="button-spot__button" type="button">4</button>
+            </article>
+            <article class="digit-buttons__button-spot">
+              <h5 class="button-spot__title-button">Блок кнопки 5</h5>
+              <button class="button-spot__button" type="button">5</button>
+            </article>
+            <article class="digit-buttons__button-spot">
+              <h5 class="button-spot__title-button">Блок кнопки 6</h5>
+              <button class="button-spot__button" type="button">6</button>
+            </article>
+            <article class="digit-buttons__button-spot">
+              <h5 class="button-spot__title-button">Блок кнопки 7</h5>
+              <button class="button-spot__button" type="button">7</button>
+            </article>
+            <article class="digit-buttons__button-spot">
+              <h5 class="button-spot__title-button">Блок кнопки 8</h5>
+              <button class="button-spot__button" type="button">8</button>
+            </article>
+            <article class="digit-buttons__button-spot">
+              <h5 class="button-spot__title-button">Блок кнопки 9</h5>
+              <button class="button-spot__button" type="button">9</button>
+            </article>
+            <article class="digit-buttons__button-spot">
+              <h5 class="button-spot__title-button">Блок кнопки 0</h5>
+              <button class="button-spot__button" type="button">0</button>
+            </article>
+            <article class="digit-buttons__button-spot">
+              <h5 class="button-spot__title-button">Блок кнопки ,</h5>
+              <button class="button-spot__button" type="button">,</button>
+            </article>
+          </section>
+          <section class="calc-buttons__operation-buttons">
+            <h5 class="operation-buttons__title--visually-hidden">Кнопки математических действий</h5>
+            <article class="operation-buttons__operation-button-spot">
+              <h6 class="operation-button-spot__title">Блок кнопки +</h6>
+              <button class="operation-button-spot__button" type="button">+</button>
+            </article>
+            <article class="operation-buttons__operation-button-spot">
+              <h6 class="operation-button-spot__title">Блок кнопки -</h6>
+              <button class="operation-button-spot__button" type="button">-</button>
+            </article>
+            <article class="operation-buttons__operation-button-spot">
+              <h6 class="operation-button-spot__title">Блок кнопки /</h6>
+              <button class="operation-button-spot__button" type="button">/</button>
+            </article>
+            <article class="operation-buttons__operation-button-spot">
+              <h6 class="operation-button-spot__title">Блок кнопки *</h6>
+              <button class="operation-button-spot__button" type="button">*</button>
+            </article>
+            <article class="operation-buttons__operation-button-spot">
+              <h6 class="operation-button-spot__title">Блок кнопки =</h6>
+              <button class="operation-button-spot__button" type="button">=</button>
+            </article>
+          </section>
+        </section>
+      </section>
+    </div>
+  </main>
+  <script type="module" src="./calculator-script.js"></script>
 </body>
+
 </html>
