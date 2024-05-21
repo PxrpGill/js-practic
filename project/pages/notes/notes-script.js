@@ -6,6 +6,8 @@ const notesInstruments = document.querySelector(".notes-instruments__create-note
 
 
 createNote.addEventListener("click", function() {
+    let key = new Date();
+    
     const inputTitleNote = document.createElement("input");
     inputTitleNote.type = "text";
     inputTitleNote.className = "create-note-spot__note-title";
@@ -24,4 +26,16 @@ createNote.addEventListener("click", function() {
     notesInstruments.appendChild(inputTitleNote);
     notesInstruments.appendChild(inputTextNote);
     notesInstruments.append(submitButton);
+
+    submitButton.addEventListener('click', function() {
+        const data = {
+            title: inputTitleNote.value,
+            text: inputTextNote.value,
+            complited: false
+        }
+        localStorage.setItem(String(key), data);
+        notesInstruments.removeChild(inputTextNote);
+        notesInstruments.removeChild(inputTitleNote);
+        notesInstruments.removeChild(submitButton);
+    })
 });

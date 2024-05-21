@@ -42,6 +42,11 @@
     font-size: 26px;
     cursor: pointer;
     position: relative;
+    transition: .3s;
+}
+
+.complited-notes-spot__button:hover {
+    color: green;
 }
 
 .complited-notes-spot__button:hover:before {
@@ -68,6 +73,10 @@
     cursor: pointer;
     transition: .3s;
     position: relative;
+}
+
+.new-old-notes-spot__button:hover {
+    color: purple;
 }
 
 .new-old-notes-spot__button:hover:before {
