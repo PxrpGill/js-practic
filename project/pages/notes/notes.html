@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS-Практика Заметки</title>
+  <link rel="stylesheet" href="./notes.css">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__container">
+      <section class="header__title">
+        <h1 class="title__inner">Заметки</h1>
+      </section>
+      <section class="header__content">
+        <h2 class="content__title--visually-hidden">
+          Контент часть хэдера
+        </h2>
+        <nav class="content__navigation">
+          <ul class="navigation__list">
+            <li class="list__item">
+              <a href="../../index.html" class="item__link">Калькулятор</a>
+            </li>
+            <li class="list__item">
+              <a href="./notes.html" class="item__link">Заметки</a>
+            </li>
+          </ul>
+        </nav>
+      </section>
+    </div>
+  </header>
+  <main class="main">
+    <div class="main__container">
+      <section class="main__notes-body">
+        <h2 class="notes-body__title--visually-hidden">Тело заметок</h2>
+        <section class="notes-body__title">
+          <h3 class="title__inner-title--visually-hiden">
+            Здесь располагаются функциональные кнопки
+          </h3>
+          <article class="title__complited-notes-spot">
+            <h4 class="complited-notes-spot__title--visually-hidden">
+              Кнопка для просмотра выполненных заметок
+            </h4>
+            <button class="complited-notes-spot__button" type="button">
+              Выполненные заметки
+            </button>
+          </article>
+          <article class="title__new-old-notes-spot">
+            <h4 class="new-pld-notes-spot__title--visually-hidden">
+              Кнопка для создания и просмотра невыполненных заметок
+            </h4>
+            <button class="new-old-notes-spot__button" type="button">
+              Мои заметки
+            </button>
+          </article>
+        </section>
+        <section class="notes-body__content">
+          <h3 class="content__title--visually-hidden">
+            Блок заметок
+          </h3>
+          <section class="content__notes-instruments">
+            <h4 class="notes-instruments__instruments-creating--visually-hidden">
+              Секция инструментов
+            </h4>
+            <article class="notes-instruments__main-instruments">
+              <h4 class="notes-instruments__title">Инструменты:</h4>
+              <button class="notes-instruments__create-note">Создать заметку</button>
+            </article>
+            <article class="notes-instruments__create-note-spot">
+
+            </article>
+          </section>
+          <section class="content__notes-list">
+            <h4 class="notes-list__title">Список заметок:</h4>
+          </section>
+        </section>
+      </section>
+    </div>
+  </main>
+  <script type="module" src="./notes-script.js"></script>
+</body>
+
+</html>
