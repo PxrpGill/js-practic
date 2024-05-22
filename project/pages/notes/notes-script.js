@@ -4,6 +4,12 @@ const notesBody = document.querySelector(".content__notes-list");
 const createNote = document.querySelector(".notes-instruments__create-note");
 const notesInstruments = document.querySelector(".notes-instruments__create-note-spot");
 
+const dialogTemplateNode = document.querySelector(".template");
+const contentNode = dialogTemplateNode.content.cloneNode(true);
+const dialog = contentNode.querySelector(".template__dialog");
+const buttonYes = contentNode.querySelector(".button-section__button-yes");
+const buttonNo = contentNode.querySelector(".button-section__button-no");
+
 
 createNote.addEventListener("click", function () {
     let key = new Date();
@@ -94,13 +100,95 @@ myNotes.addEventListener('click', function () {
                 buttonSection.appendChild(editButton);
                 buttonSection.appendChild(compliteButton);
                 buttonSection.appendChild(deleteButton);
-                
+
                 article.appendChild(title);
                 article.appendChild(description);
                 article.appendChild(buttonSection);
 
                 notesBody.appendChild(article);
+
+                compliteButton.addEventListener('click', function() {
+                    note.complited = true;
+                    localStorage.setItem(key, JSON.stringify(note));
+                })
+
+                editButton.addEventListener('click', function() {
+
+                })
+
+                deleteButton.addEventListener('click', function() {
+                    notesBody.appendChild(contentNode);
+                    dialog.showModal();
+
+                    buttonYes.addEventListener('click', function() {
+                        dialog.close();
+
+                        localStorage.removeItem(key);
+                    })
+                })
             }
         }
     }
+})
+
+completedNotes.addEventListener('click', function () {
+    notesBody.innerHTML = `<h4 class="notes-list__title">Список заметок:</h4>`;
+    for (let key in localStorage) {
+        if (localStorage.hasOwnProperty(key)) {
+            let note = JSON.parse(localStorage.getItem(key));
+            if (note && note.complited == true) {
+                const article = document.createElement("article");
+                article.className = "notes-list__note-item";
+
+                const title = document.createElement("h2");
+                title.className = "note-item__title";
+                title.textContent = note.title;
+
+                const description = document.createElement("p");
+                description.className = "note-item__description";
+                description.textContent = note.text;
+
+                const buttonSection = document.createElement("section");
+                buttonSection.className = "note-item__button-spot";
+
+                const editButton = document.createElement("button");
+                editButton.type = "button";
+                editButton.className = "button-spot__edit-button";
+                editButton.textContent = "Редактировать";
+
+                const compliteButton = document.createElement("button");
+                compliteButton.type = "button";
+                compliteButton.className = "button-spot__complite-button";
+                compliteButton.textContent = "Сделано!";
+
+                const deleteButton = document.createElement("button");
+                deleteButton.type = "button";
+                deleteButton.className = "button-spot__delete-button";
+                deleteButton.textContent = "Удалить";
+
+                buttonSection.appendChild(deleteButton);
+
+                article.appendChild(title);
+                article.appendChild(description);
+                article.appendChild(buttonSection);
+
+                notesBody.appendChild(article);
+
+                deleteButton.addEventListener('click', function() {
+                    notesBody.appendChild(contentNode);
+                    dialog.showModal();
+
+                    buttonYes.addEventListener('click', function() {
+                        dialog.close();
+
+                        localStorage.removeItem(key);
+                    })
+                })
+            }
+        }
+    }
+})
+
+buttonNo.addEventListener('click', function() {
+     dialog.close();
 })
