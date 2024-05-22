@@ -113,7 +113,53 @@ myNotes.addEventListener('click', function () {
                 })
 
                 editButton.addEventListener('click', function() {
+                    const section = document.createElement('section');
+                    section.className = "note-item__edit-spot";
 
+                    const editInputTitle = document.createElement("input");
+                    editInputTitle.className = "edit-spot__title";
+                    editInputTitle.type = "text";
+                    editInputTitle.value = title.textContent;
+
+                    const editInputDescription = document.createElement("textarea");
+                    editInputDescription.className = "edit-spot__description";
+                    editInputDescription.value = description.textContent;
+
+                    const articleEditButtons = document.createElement("article");
+                    articleEditButtons.className = "edit-spot__buttons";
+
+                    const successEditButton = document.createElement("button");
+                    successEditButton.type = "button";
+                    successEditButton.className = "buttons__button-success";
+                    successEditButton.textContent = "Готово";
+
+                    const cancelEditButton = document.createElement("button");
+                    cancelEditButton.type = "button";
+                    cancelEditButton.className = "buttons__button-cancel";
+                    cancelEditButton.textContent = "Отмена";
+                    
+                    articleEditButtons.appendChild(successEditButton);
+                    articleEditButtons.appendChild(cancelEditButton);
+
+                    section.appendChild(editInputTitle);
+                    section.appendChild(editInputDescription);
+                    section.appendChild(articleEditButtons);
+
+                    article.appendChild(section);
+
+                    cancelEditButton.addEventListener('click', function() {
+                        article.removeChild(section);
+                    })
+
+                    successEditButton.addEventListener('click', function() {
+                        title.textContent = editInputTitle.value;
+                        description.textContent = editInputDescription.value;
+                        article.removeChild(section);
+
+                        note.title = title.textContent;
+                        note.text = description.textContent;
+                        localStorage.setItem(key, JSON.stringify(note));
+                    })
                 })
 
                 deleteButton.addEventListener('click', function() {
