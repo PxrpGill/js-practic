@@ -236,5 +236,6 @@ completedNotes.addEventListener('click', function () {
 })
 
 buttonNo.addEventListener('click', function() {
-     dialog.close();
+    dialog.close();
+    notesBody.removeChild(contentNode);
 })
